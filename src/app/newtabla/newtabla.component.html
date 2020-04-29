@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>F-1 Feeder</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <script>
+
+
+  </script>
+</head>
+
+<body ng-app="f1feeder-part1 ">
+  <h4>NgFor (grouped)</h4>
+  <input [(ngModel)]='textoDeInput'  placeholder="search text goes here" >
+ <ul *ngFor="let group of peopleByCountry">
+
+   <li>{{ group.country }}</li>
+   <ul>
+   <li *ngFor="let person of group.people " >
+
+    {{ person.name }}
+  </li>
+  </ul>
+ </ul>
+
+<div class="container">
+
+
+ <table class="table table-striped table-bordered">
+  <thead>
+    <tr><th colspan="4">Drivers Championship Standings</th></tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let driver of listFormula1Service | filter: textoDeInput" >
+
+      <td>
+        <img width="5%" height="5%" src="https://banderasdelmundo.org/wp-content/uploads/2019/04/Bandera-del-Mundo-Alemania-300x180.png" />
+        {{driver.Driver.givenName}}&nbsp;{{driver.Driver.familyName}}
+      </td>
+      <td>{{driver.Constructors[0].name}}</td>
+      <td>{{driver.points}}</td>
+
+    </tr>
+
+  </tbody>
+</table>
+</div>
+<div id="myGrid">
+<ag-grid-angular
+[pagination]="true"
+
+    [rowData]="peopleByCountryGrid"
+    [columnDefs]="columnDefs">
+
+</ag-grid-angular></div>
+  </body>
+  </html>
+
+
+
+
