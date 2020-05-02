@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 export class Formula1Service {
   constructor(protected http: HttpClient) { }
 
-  getdatosFormula1() {
+  getdatosFormula1(){
     return this.http.get('http://ergast.com/api/f1/2013/driverStandings.json');
   }
 }
